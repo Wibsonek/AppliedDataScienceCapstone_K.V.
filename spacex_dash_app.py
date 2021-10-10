@@ -20,11 +20,9 @@ options_drop_down_ar = [{'label': i, 'value': i} for i in launch_sites_ar]
 options_drop_down_ar.insert(0,{'label': 'All Sites', 'value': 'ALL'})
 
 
-
 # Creating default charts
 default_pie_chart = px.pie(spacex_df, values='class', names='Launch Site', title='Total Success Launches by Site')
 default_scatter_chart = px.scatter(spacex_df, x='Payload Mass (kg)', y='class', color='Booster Version Category')
-
 
 # Create a dash application
 app = dash.Dash(__name__)
@@ -116,7 +114,6 @@ def get_pie_chart(entered_site):
         )    
         return fig 
 
-
 # TASK 4:
 # Add a callback function for `site-dropdown` and `payload-slider` as inputs, `success-payload-scatter-chart` as output
 @app.callback(
@@ -154,21 +151,20 @@ def get_scatter_plot(entered_site, slider_range):
         )
         return fig 
 
-
 # Run the app
 if __name__ == '__main__':
     app.run_server()
-
 
     #Questions:
 
     #1: Which site has the largest successful launches?
     # VAFB SLC-4E with 9600 kg
     #2: Which site has the highest launch success rate?
-    # CCAFS SLC-40 with 42.9%
+    # KSC LC-39A launch site.The rate of succesfull launches is with 73.1% 
     #3: Which payload range(s) has the highest launch success rate?
     # 2 - 4 kg*10^3
     #4: Which payload range(s) has the lowest launch success rate?
     # 6 - 8 and kg * 10^3
     #5: Which F9 Booster version (v1.0, v1.1, FT, B4, B5, etc.) has the highest launch success rate?
     # FT with 14 to 7
+
